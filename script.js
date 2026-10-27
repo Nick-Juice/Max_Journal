@@ -32,6 +32,10 @@ loginForm.addEventListener("submit", (event) => {
   formMessage.textContent = "The login form is ready for authentication to be connected.";
 });
 
+document.querySelector("#googleSignIn").addEventListener("click", () => {
+  formMessage.textContent = "Google sign-in will work once Google authentication is connected.";
+});
+
 document.querySelector("#forgotLink").addEventListener("click", (event) => {
   event.preventDefault();
   formMessage.textContent = "Password recovery will be connected when authentication is set up.";
