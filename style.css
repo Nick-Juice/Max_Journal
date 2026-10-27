@@ -29,7 +29,7 @@ button, input { font: inherit; }
 .page { min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 64px 20px 24px; position: relative; overflow: hidden; }
 .theme-toggle { position: absolute; top: 24px; right: 26px; display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--border); border-radius: 50%; color: var(--text); background: transparent; cursor: pointer; }
 .theme-toggle svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; }
-.login-card { width: 100%; max-width: 420px; padding: 38px 38px 32px; background: transparent; border: 0; border-radius: 0; box-shadow: none; position: relative; top: -48px; animation: rise-in .75s cubic-bezier(.2,.75,.25,1) both; }
+.login-card { width: 100%; max-width: 420px; padding: 38px 38px 32px; background: transparent; border: 0; border-radius: 0; box-shadow: none; position: relative; top: -100px; animation: rise-in .75s cubic-bezier(.2,.75,.25,1) both; }
 .brand-logo { display: block; width: 170px; height: auto; margin: 0 auto 20px; animation: logo-in .9s ease-out both; }
 .eyebrow { margin: 0 0 9px; color: var(--blue); font-size: 11px; font-weight: 750; letter-spacing: 2px; text-align: center; }
 h1 { margin: 0; text-align: center; font-family: "Space Grotesk", "DM Sans", sans-serif; font-size: 31px; letter-spacing: -1.2px; font-weight: 600; animation: heading-in .8s .12s ease-out both; }
