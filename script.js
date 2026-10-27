@@ -41,7 +41,3 @@ document.querySelector("#forgotLink").addEventListener("click", (event) => {
   formMessage.textContent = "Password recovery will be connected when authentication is set up.";
 });
 
-document.querySelector("#signupLink").addEventListener("click", (event) => {
-  event.preventDefault();
-  formMessage.textContent = "Account creation will be added next.";
-});
