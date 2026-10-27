@@ -12,8 +12,8 @@ function setTheme(theme) {
   try { localStorage.setItem("max-journal-theme", theme); } catch {}
 }
 
-let savedTheme = "light";
-try { savedTheme = localStorage.getItem("max-journal-theme") || "light"; } catch {}
+let savedTheme = "dark";
+try { savedTheme = localStorage.getItem("max-journal-theme") || "dark"; } catch {}
 setTheme(savedTheme);
 
 themeToggle.addEventListener("click", () => {
