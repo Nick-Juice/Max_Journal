@@ -34,7 +34,7 @@ button, input { font: inherit; }
 .eyebrow { margin: 0 0 9px; color: var(--blue); font-size: 11px; font-weight: 750; letter-spacing: 2px; text-align: center; }
 h1 { margin: 0; text-align: center; font-family: "Space Grotesk", "DM Sans", sans-serif; font-size: 31px; letter-spacing: -1.2px; font-weight: 600; position: relative; top: -18px; animation: heading-in .8s .12s ease-out both; }
 .intro { margin: 10px 0 28px; text-align: center; color: var(--muted); font-size: 14px; }
-form { display: flex; flex-direction: column; }
+form { display: flex; flex-direction: column; position: relative; top: 12px; }
 label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 650; }
 input[type="email"], input[type="password"], input[type="text"] { width: 100%; height: 48px; padding: 0 14px; border: 1px solid var(--border); border-radius: 10px; outline: none; background: var(--field); color: var(--text); transition: border-color .15s, box-shadow .15s; }
 input::placeholder { color: #858585; }
@@ -52,15 +52,15 @@ a:hover { text-decoration: underline; }
 .submit-button { border: 0; background: var(--blue); color: #fff; box-shadow: 0 5px 22px rgba(65, 105, 225, .16); }
 .submit-button:hover { background: var(--blue-hover); box-shadow: 0 7px 28px rgba(65, 105, 225, .3); transform: translateY(-1px); }
 .submit-button:active, .google-button:active { transform: translateY(1px); }
-.or-divider { display: flex; align-items: center; gap: 13px; margin: 17px 0; color: var(--muted); font-size: 11px; }
+.or-divider { display: flex; align-items: center; gap: 13px; margin: 9px 0; color: var(--muted); font-size: 11px; }
 .or-divider::before, .or-divider::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 .google-button { border: 1px solid var(--border); background: transparent; color: var(--text); }
 .google-button:hover { border-color: var(--blue); background: rgba(65, 105, 225, .07); }
 .google-button svg { width: 18px; height: 18px; flex: 0 0 18px; }
 .form-message { min-height: 16px; margin: 10px 0 0; color: var(--muted); font-size: 12px; text-align: center; }
-.signup { margin: 22px 0 0; text-align: center; color: var(--muted); font-size: 12px; }
+.signup { position: relative; top: 12px; margin: 22px 0 0; text-align: center; color: var(--muted); font-size: 12px; }
 .signup a { font-size: 12px; }
-.footer-note { margin: 22px 0 0; color: var(--muted); font-size: 12px; text-align: center; }
+.footer-note { position: relative; top: 12px; margin: 22px 0 0; color: var(--muted); font-size: 12px; text-align: center; }
 @media (max-width: 480px) { .page { padding: 76px 16px 24px; } .login-card { padding: 30px 23px 25px; } .brand-logo { width: 150px; margin-bottom: 25px; } h1 { font-size: 26px; } .theme-toggle { top: 18px; right: 18px; } }
 
 @keyframes rise-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
