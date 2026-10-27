@@ -1,0 +1,58 @@
+:root {
+  color-scheme: light;
+  --blue: #4169e1;
+  --blue-hover: #3156ca;
+  --page: #f7f8fc;
+  --surface: #ffffff;
+  --text: #182033;
+  --muted: #737b8d;
+  --border: #e1e5ef;
+  --field: #ffffff;
+  --focus: rgba(65, 105, 225, .16);
+  --shadow: 0 24px 70px rgba(24, 38, 80, .08);
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d1220;
+  --surface: #151c2d;
+  --text: #f4f6ff;
+  --muted: #a0a9bd;
+  --border: #2b3449;
+  --field: #101728;
+  --focus: rgba(91, 124, 235, .22);
+  --shadow: 0 24px 70px rgba(0, 0, 0, .24);
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--page); color: var(--text); transition: background .2s, color .2s; }
+button, input { font: inherit; }
+.page { min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 64px 20px 24px; position: relative; }
+.theme-toggle { position: absolute; top: 24px; right: 26px; display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--border); border-radius: 50%; color: var(--text); background: var(--surface); cursor: pointer; }
+.theme-toggle svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; }
+.login-card { width: 100%; max-width: 420px; padding: 38px 38px 32px; background: var(--surface); border: 1px solid var(--border); border-radius: 22px; box-shadow: var(--shadow); }
+.brand-logo { display: block; width: 170px; height: auto; margin: 0 auto 28px; }
+.eyebrow { margin: 0 0 9px; color: var(--blue); font-size: 11px; font-weight: 750; letter-spacing: 2px; text-align: center; }
+h1 { margin: 0; text-align: center; font-size: 29px; letter-spacing: -1px; font-weight: 720; }
+.intro { margin: 10px 0 28px; text-align: center; color: var(--muted); font-size: 14px; }
+form { display: flex; flex-direction: column; }
+label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 650; }
+input[type="email"], input[type="password"], input[type="text"] { width: 100%; height: 48px; padding: 0 14px; border: 1px solid var(--border); border-radius: 10px; outline: none; background: var(--field); color: var(--text); transition: border-color .15s, box-shadow .15s; }
+input::placeholder { color: #9aa2b2; }
+input[type="email"]:focus, .password-wrap input:focus { border-color: var(--blue); box-shadow: 0 0 0 4px var(--focus); }
+.password-heading { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; }
+.password-heading label { margin: 0 0 8px; }
+a { color: var(--blue); text-decoration: none; font-size: 12px; font-weight: 650; }
+a:hover { text-decoration: underline; }
+.password-wrap { position: relative; }
+.password-wrap input { padding-right: 60px; }
+.show-password { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); border: 0; padding: 5px 0 5px 5px; color: var(--blue); background: transparent; font-size: 12px; font-weight: 700; cursor: pointer; }
+.remember { display: flex; align-items: center; gap: 9px; margin: 17px 0 22px; color: var(--muted); font-size: 12px; font-weight: 500; cursor: pointer; }
+.remember input { width: 15px; height: 15px; margin: 0; accent-color: var(--blue); }
+.submit-button { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 49px; border: 0; border-radius: 10px; background: var(--blue); color: #fff; font-weight: 700; cursor: pointer; transition: background .15s, transform .15s; }
+.submit-button:hover { background: var(--blue-hover); }
+.submit-button:active { transform: translateY(1px); }
+.submit-button span { font-size: 18px; line-height: 1; }
+.form-message { min-height: 16px; margin: 10px 0 0; color: var(--muted); font-size: 12px; text-align: center; }
+.signup { margin: 22px 0 0; text-align: center; color: var(--muted); font-size: 12px; }
+.signup a { font-size: 12px; }
+.footer-note { margin: 22px 0 0; color: var(--muted); font-size: 12px; text-align: center; }
+@media (max-width: 480px) { .page { padding: 76px 16px 24px; } .login-card { padding: 30px 23px 25px; border-radius: 18px; } .brand-logo { width: 150px; margin-bottom: 25px; } h1 { font-size: 26px; } .theme-toggle { top: 18px; right: 18px; } }
