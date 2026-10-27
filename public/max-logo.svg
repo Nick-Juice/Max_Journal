@@ -1,16 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 118" role="img" aria-labelledby="title desc">
   <title id="title">MAX Journal</title>
-  <desc id="desc">Futuristic MAX wordmark with Journal underneath.</desc>
+  <desc id="desc">Futuristic royal-blue MAX wordmark with Journal underneath.</desc>
   <defs>
     <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#6c8cff"/>
       <stop offset="1" stop-color="#4169e1"/>
     </linearGradient>
   </defs>
-  <path d="M18 18h12l18 25 18-25h12v54H66V39L48 63 30 39v33H18z" fill="url(#blue)"/>
-  <path d="M91 72 110 18h14l19 54h-14l-4-13h-17l-4 13zm20-24h10l-5-16z" fill="url(#blue)"/>
-  <path d="M150 18h14v38q0 17-17 17-10 0-16-5l6-11q4 4 9 4 4 0 4-6z" fill="url(#blue)"/>
-  <path d="M184 18h14v54h-14z" fill="url(#blue)"/>
-  <path d="M18 88h324" stroke="#4169e1" stroke-width="2" opacity=".45"/>
-  <text x="180" y="108" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" letter-spacing="7" text-anchor="middle" fill="#4169e1">JOURNAL</text>
+  <text x="180" y="67" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="800" font-style="italic" letter-spacing="-3" text-anchor="middle" fill="url(#blue)">MAX</text>
+  <path d="M55 82h250" stroke="#4169e1" stroke-width="1.5" opacity=".55"/>
+  <text x="180" y="105" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" letter-spacing="7" text-anchor="middle" fill="#4169e1">JOURNAL</text>
 </svg>
