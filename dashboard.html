@@ -75,7 +75,7 @@
           <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><span id="current-date-display">Today</span></div>
         </section>
 
-        <section class="grid grid-cols-1 gap-0 border-y border-slate-200 sm:grid-cols-3 dark:border-slate-800" aria-label="Journal statistics">
+        <section class="stats-grid grid grid-cols-1 gap-0 border-y border-slate-200 sm:grid-cols-3 dark:border-slate-800" aria-label="Journal statistics">
           <article class="stat-panel"><p>Total entries</p><strong id="metric-total-entries">0</strong><span>Across all journals</span></article>
           <article class="stat-panel"><p>Active journals</p><strong id="metric-active-journals">0</strong><span>Journals you have started</span></article>
           <article class="stat-panel"><p>Entries this week</p><strong id="metric-week-entries">0</strong><span>Your last seven days</span></article>
@@ -83,7 +83,7 @@
 
         <section id="journals">
           <div class="mb-4"><h2 class="text-base font-semibold tracking-tight">My journals</h2><p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Choose a space that fits what you want to keep track of.</p></div>
-          <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div class="journal-grid grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
             <article class="journal-panel"><div class="mb-5 flex items-center justify-between"><span class="journal-mark trading-mark">T</span><span class="journal-count" id="trading-count">0 entries</span></div><p class="mb-1 text-[10px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Performance</p><h3>Trading Journal</h3><p>Record your trades, review your decisions, and understand your progress over time.</p><button class="journal-action" data-journal="Trading">Open journal</button></article>
             <article class="journal-panel"><div class="mb-5 flex items-center justify-between"><span class="journal-mark expense-mark">E</span><span class="journal-count" id="expense-count">0 entries</span></div><p class="mb-1 text-[10px] font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400">Finance</p><h3>Expense Journal</h3><p>Track your spending, understand your habits, and stay on top of your money.</p><button class="journal-action" data-journal="Expense">Open journal</button></article>
             <article class="journal-panel"><div class="mb-5 flex items-center justify-between"><span class="journal-mark personal-mark">P</span><span class="journal-count" id="personal-count">0 entries</span></div><p class="mb-1 text-[10px] font-semibold uppercase tracking-wider text-violet-600 dark:text-violet-400">Reflection</p><h3>Personal Journal</h3><p>A private space for your thoughts, reflections, ideas, and everyday moments.</p><button class="journal-action" data-journal="Personal">Open journal</button></article>
