@@ -32,7 +32,7 @@ loginForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const email = document.querySelector("#email").value.trim().toLowerCase();
   const password = passwordInput.value;
-  const demoPassword = [49, 50, 51, 52, 53].map(String.fromCharCode).join("");
+  const demoPassword = [49, 50, 51, 52, 53].map((code) => String.fromCharCode(code)).join("");
 
   if (email === "domato@gmail.com" && password === demoPassword) {
     formMessage.textContent = "Demo login successful. Opening your dashboard...";
