@@ -144,3 +144,18 @@ main { min-width:0; }
 @media (prefers-reduced-motion:reduce) {
   html { scroll-behavior:auto; }
 }
+
+/* Keep the navigation fixed while the workspace is the only scrolling area */
+html, body { height:100%; }
+body { height:100vh; height:100dvh; min-height:0; overflow:hidden; }
+body > .flex.min-h-screen { height:100%; min-height:0; overflow:hidden; }
+body > .flex.min-h-screen > #sidebar { height:100%; max-height:100%; overflow:hidden; position:relative; top:auto; bottom:auto; }
+body > .flex.min-h-screen > #sidebar > div:nth-child(2) { min-height:0; overflow-y:auto; }
+body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col { height:100%; min-height:0; overflow:hidden; }
+body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col > header { position:relative; top:auto; flex:0 0 auto; }
+body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col > main#dashboard { min-height:0; flex:1 1 auto; overflow-y:auto; overscroll-behavior-y:contain; scrollbar-gutter:stable; }
+@media (max-width:767px) {
+  body > .flex.min-h-screen > #sidebar { position:fixed !important; top:0; bottom:0; height:100dvh; max-height:100dvh; }
+  body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col { width:100%; }
+  body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col > main#dashboard { -webkit-overflow-scrolling:touch; }
+}
