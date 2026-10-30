@@ -161,24 +161,39 @@ body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col > main#dashboard { 
 }
 
 
-/* Bright, continuously moving royal-blue ambient light */
-body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col {
+/* One continuous animated glow layer shared by the sidebar and dashboard */
+body > .flex.min-h-screen {
   position:relative;
   isolation:isolate;
-  background-color:#f8fafc;
+  background:#f8fafc;
+}
+body > .flex.min-h-screen::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
   background-image:
-    radial-gradient(ellipse 58% 48% at 78% 8%, rgba(37,99,235,.30), transparent 68%),
-    radial-gradient(ellipse 48% 52% at 12% 78%, rgba(59,130,246,.24), transparent 70%),
-    radial-gradient(ellipse 42% 38% at 52% 48%, rgba(96,165,250,.19), transparent 72%);
+    radial-gradient(ellipse 48% 58% at 18% 12%, rgba(37,99,235,.36), transparent 72%),
+    radial-gradient(ellipse 54% 60% at 76% 82%, rgba(59,130,246,.30), transparent 72%),
+    radial-gradient(ellipse 42% 48% at 52% 42%, rgba(96,165,250,.24), transparent 74%);
   background-size:180% 180%;
   animation:maxAmbientGlow 9s ease-in-out infinite alternate;
 }
-.dark body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col {
-  background-color:#020617;
+.dark body > .flex.min-h-screen {
+  background:#020617;
+}
+.dark body > .flex.min-h-screen::before {
   background-image:
-    radial-gradient(ellipse 62% 54% at 78% 6%, rgba(37,99,235,.52), transparent 68%),
-    radial-gradient(ellipse 54% 56% at 10% 82%, rgba(29,78,216,.40), transparent 70%),
-    radial-gradient(ellipse 48% 42% at 52% 46%, rgba(59,130,246,.30), transparent 72%);
+    radial-gradient(ellipse 52% 62% at 18% 12%, rgba(37,99,235,.58), transparent 72%),
+    radial-gradient(ellipse 56% 62% at 78% 82%, rgba(29,78,216,.48), transparent 72%),
+    radial-gradient(ellipse 44% 50% at 52% 42%, rgba(59,130,246,.36), transparent 74%);
+}
+body > .flex.min-h-screen > #sidebar,
+body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col {
+  background-color:transparent;
+  background-image:none;
+  animation:none;
 }
 @keyframes maxAmbientGlow {
   0% { background-position:0% 0%; }
@@ -188,30 +203,5 @@ body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col {
   100% { background-position:0% 45%; }
 }
 @media (prefers-reduced-motion:reduce) {
-  body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col { animation:none; }
-}
-
-
-/* Sidebar and dashboard share one animation so their glow stays synchronized */
-body > .flex.min-h-screen > #sidebar {
-  position:relative;
-  isolation:isolate;
-  overflow:hidden;
-  background-color:#fff;
-  background-image:
-    radial-gradient(ellipse 90% 48% at 10% 8%, rgba(37,99,235,.25), transparent 72%),
-    radial-gradient(ellipse 85% 52% at 92% 82%, rgba(59,130,246,.20), transparent 72%),
-    radial-gradient(ellipse 75% 42% at 20% 100%, rgba(96,165,250,.16), transparent 74%);
-  background-size:180% 180%;
-  animation:maxAmbientGlow 9s ease-in-out infinite alternate;
-}
-.dark body > .flex.min-h-screen > #sidebar {
-  background-color:#030712;
-  background-image:
-    radial-gradient(ellipse 95% 50% at 8% 6%, rgba(37,99,235,.42), transparent 72%),
-    radial-gradient(ellipse 90% 55% at 95% 78%, rgba(29,78,216,.34), transparent 72%),
-    radial-gradient(ellipse 75% 44% at 20% 100%, rgba(59,130,246,.26), transparent 74%);
-}
-@media (prefers-reduced-motion:reduce) {
-  body > .flex.min-h-screen > #sidebar { animation:none; }
+  body > .flex.min-h-screen::before { animation:none; }
 }
