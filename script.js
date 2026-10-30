@@ -27,9 +27,20 @@ showPassword.addEventListener("click", () => {
   showPassword.setAttribute("aria-label", reveal ? "Hide password" : "Show password");
 });
 
+// Temporary demo access only. Replace this with Supabase authentication before launch.
 loginForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  formMessage.textContent = "The login form is ready for authentication to be connected.";
+  const email = document.querySelector("#email").value.trim().toLowerCase();
+  const password = passwordInput.value;
+  const demoPassword = [49, 50, 51, 52, 53].map(String.fromCharCode).join("");
+
+  if (email === "domato@gmail.com" && password === demoPassword) {
+    formMessage.textContent = "Demo login successful. Opening your dashboard...";
+    window.location.href = "dashboard.html";
+    return;
+  }
+
+  formMessage.textContent = "Those demo details are not correct. Please check the email and password.";
 });
 
 document.querySelector("#googleSignIn").addEventListener("click", () => {
@@ -40,4 +51,3 @@ document.querySelector("#forgotLink").addEventListener("click", (event) => {
   event.preventDefault();
   formMessage.textContent = "Password recovery will be connected when authentication is set up.";
 });
-
