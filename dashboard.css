@@ -190,3 +190,34 @@ body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col {
 @media (prefers-reduced-motion:reduce) {
   body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col { animation:none; }
 }
+
+
+/* Extend the moving ambient glow into the fixed sidebar */
+body > .flex.min-h-screen > #sidebar {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background-color:#fff;
+  background-image:
+    radial-gradient(ellipse 90% 48% at 10% 8%, rgba(37,99,235,.25), transparent 72%),
+    radial-gradient(ellipse 85% 52% at 92% 82%, rgba(59,130,246,.20), transparent 72%),
+    radial-gradient(ellipse 75% 42% at 20% 100%, rgba(96,165,250,.16), transparent 74%);
+  background-size:180% 180%;
+  animation:maxSidebarGlow 10s ease-in-out infinite alternate;
+}
+.dark body > .flex.min-h-screen > #sidebar {
+  background-color:#030712;
+  background-image:
+    radial-gradient(ellipse 95% 50% at 8% 6%, rgba(37,99,235,.42), transparent 72%),
+    radial-gradient(ellipse 90% 55% at 95% 78%, rgba(29,78,216,.34), transparent 72%),
+    radial-gradient(ellipse 75% 44% at 20% 100%, rgba(59,130,246,.26), transparent 74%);
+}
+@keyframes maxSidebarGlow {
+  0% { background-position:0% 0%; }
+  35% { background-position:75% 30%; }
+  70% { background-position:100% 100%; }
+  100% { background-position:15% 65%; }
+}
+@media (prefers-reduced-motion:reduce) {
+  body > .flex.min-h-screen > #sidebar { animation:none; }
+}
