@@ -1,126 +1,124 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#4169e1">
+  <meta name="theme-color" content="#0b0f17">
   <meta name="description" content="Your personal space to reflect, plan, and grow.">
-  <title>Dashboard · MAX Journal</title>
+  <title>Dashboard | MAX Journal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: { extend: {
+        colors: {
+          brand: { 50:"#eff6ff",100:"#dbeafe",200:"#bfdbfe",500:"#3b82f6",600:"#2563eb",700:"#1d4ed8",800:"#1e40af",900:"#1e3a8a" },
+          surface: { dark:"#111827", "dark-page":"#0b0f17" }
+        },
+        fontFamily: { sans:["Inter","-apple-system","BlinkMacSystemFont","Segoe UI","Roboto","sans-serif"] }
+      }}
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="dashboard.css">
 </head>
-<body>
-  <div class="app-shell">
-    <aside class="sidebar" id="sidebar">
-      <a class="brand" href="dashboard.html" aria-label="MAX Journal dashboard">
-        <img src="public/max-logo.png" alt="MAX Journal">
-      </a>
-      <div class="workspace-label">WORKSPACE</div>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a class="nav-link active" href="dashboard.html" aria-current="page">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="8" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="15" width="7" height="6" rx="1.5"/></svg>
-          <span>Dashboard</span>
+<body class="min-h-screen bg-slate-50 text-slate-900 antialiased transition-colors duration-200 dark:bg-surface-dark-page dark:text-slate-100">
+  <div class="flex min-h-screen">
+    <div id="sidebar-backdrop" class="fixed inset-0 z-30 hidden bg-slate-950/50 md:hidden"></div>
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 flex w-64 -translate-x-full flex-col border-r border-slate-200 bg-white transition-transform duration-200 dark:border-slate-800 dark:bg-surface-dark md:static md:translate-x-0">
+      <div class="flex h-16 shrink-0 items-center border-b border-slate-200 px-6 dark:border-slate-800">
+        <a href="dashboard.html" class="flex items-center" aria-label="MAX Journal home">
+          <img src="public/max-logo.png" alt="MAX Journal" class="h-auto w-32">
         </a>
-        <a class="nav-link" href="#journals">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5z"/><path d="M5 4.5v17M9 6h7M9 10h7"/></svg>
-          <span>My Journals</span>
-        </a>
-        <a class="nav-link" href="#recent">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z"/><path d="M9 8h6M9 12h6"/></svg>
-          <span>All Entries</span>
-        </a>
-        <a class="nav-link" href="#overview">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 6-7"/></svg>
-          <span>Insights</span>
-        </a>
-      </nav>
-      <div class="sidebar-bottom">
-        <a class="nav-link" href="#settings">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.2 1-1.4 2.4-1.5-.6a8 8 0 0 1-1.6.9l-.3 1.6h-2.8l-.3-1.6a8 8 0 0 1-1.6-.9l-1.5.6-1.4-2.4 1.2-1a8 8 0 0 1 0-1.9l-1.2-1 1.4-2.4 1.5.6a8 8 0 0 1 1.6-.9l.3-1.6h2.8l.3 1.6a8 8 0 0 1 1.6.9l1.5-.6 1.4 2.4-1.2 1a8 8 0 0 1 0 1.9z"/></svg>
-          <span>Settings</span>
-        </a>
-        <div class="sidebar-divider"></div>
-        <div class="sidebar-user">
-          <div class="avatar">M</div>
-          <div class="user-copy"><strong>My account</strong><span>Personal workspace</span></div>
-          <button class="more-button" type="button" aria-label="Account options">···</button>
+        <button id="close-sidebar" class="ml-auto rounded-md p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 md:hidden" aria-label="Close navigation">✕</button>
+      </div>
+      <div class="flex-1 overflow-y-auto px-3 py-6">
+        <p class="mb-3 px-3 text-[10px] font-semibold uppercase tracking-[.14em] text-slate-400">Workspace</p>
+        <nav class="space-y-1" aria-label="Main navigation">
+          <a href="#dashboard" class="nav-link active"><span class="nav-symbol">▦</span>Dashboard</a>
+          <a href="#journals" class="nav-link"><span class="nav-symbol">▤</span>My Journals</a>
+          <a href="#entries" class="nav-link"><span class="nav-symbol">▧</span>All Entries</a>
+          <a href="#insights" class="nav-link"><span class="nav-symbol">▥</span>Insights</a>
+        </nav>
+        <p class="mb-3 mt-8 px-3 text-[10px] font-semibold uppercase tracking-[.14em] text-slate-400">Preferences</p>
+        <a href="#settings" class="nav-link"><span class="nav-symbol">⚙</span>Settings</a>
+      </div>
+      <div class="border-t border-slate-200 p-4 dark:border-slate-800">
+        <div class="flex items-center gap-3">
+          <div id="user-avatar" class="grid h-9 w-9 place-items-center rounded-full bg-brand-700 text-xs font-semibold text-white">M</div>
+          <div class="min-w-0"><p id="sidebar-user-name" class="truncate text-xs font-semibold">My account</p><p id="sidebar-user-email" class="truncate text-[11px] text-slate-500 dark:text-slate-400">Personal workspace</p></div>
         </div>
       </div>
     </aside>
 
-    <main class="main-content">
-      <header class="topbar">
-        <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Open navigation" aria-expanded="false">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-        <div class="breadcrumb"><span>Workspace</span><span class="breadcrumb-separator">/</span><strong>Dashboard</strong></div>
-        <div class="topbar-actions">
-          <button class="icon-button theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" title="Switch theme">
-            <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
-          </button>
-          <button class="profile-button" type="button" aria-label="Account profile"><span class="avatar small">M</span><span class="profile-name">My account</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+    <div class="flex min-w-0 flex-1 flex-col">
+      <header class="sticky top-0 z-20 flex h-16 shrink-0 items-center justify-between border-b border-slate-200 bg-white/95 px-4 backdrop-blur sm:px-7 dark:border-slate-800 dark:bg-surface-dark/95">
+        <div class="flex min-w-0 items-center gap-3">
+          <button id="mobile-menu-btn" class="rounded-md p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 md:hidden" aria-label="Open navigation" aria-expanded="false"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+          <div class="hidden items-center gap-2 text-xs text-slate-500 sm:flex"><span>Workspace</span><span class="text-slate-300 dark:text-slate-700">/</span><strong class="font-semibold text-slate-800 dark:text-slate-200">Dashboard</strong></div>
+          <label class="relative hidden w-64 lg:block">
+            <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-slate-400"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span>
+            <input id="global-search-input" type="search" placeholder="Search your entries" class="w-full rounded-md border border-slate-200 bg-slate-50 py-2 pl-9 pr-3 text-xs outline-none transition focus:border-brand-600 focus:ring-2 focus:ring-brand-600/10 dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+          </label>
+        </div>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <button id="theme-toggle" class="rounded-md border border-slate-200 p-2 text-slate-500 transition hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800" aria-label="Switch theme" title="Switch theme"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></button>
+          <button id="open-new-entry-modal" class="inline-flex items-center gap-2 rounded-md bg-brand-700 px-3 py-2 text-xs font-semibold text-white transition hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-surface-dark"><span class="text-base leading-none">+</span><span class="hidden sm:inline">New entry</span><span class="sm:hidden">New</span></button>
         </div>
       </header>
 
-      <div class="dashboard-wrap">
-        <section class="welcome-row">
-          <div>
-            <p class="eyebrow">OVERVIEW</p>
-            <h1>Your workspace<span class="blue-period">.</span></h1>
-            <p class="welcome-copy">Keep your notes, trades and spending organised in one place.</p>
-          </div>
-          <div class="date-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><span id="todayDate">Today</span></div>
+      <main id="dashboard" class="mx-auto w-full max-w-[1440px] flex-1 space-y-9 px-4 py-7 sm:px-7 sm:py-9 lg:px-10">
+        <section class="flex flex-col justify-between gap-4 border-b border-slate-200 pb-6 sm:flex-row sm:items-end dark:border-slate-800">
+          <div><p class="mb-2 text-[10px] font-semibold uppercase tracking-[.16em] text-slate-400">Overview</p><h1 class="text-2xl font-semibold tracking-tight sm:text-3xl">Your workspace<span class="text-brand-600">.</span></h1><p id="user-activity-subtitle" class="mt-2 text-sm text-slate-500 dark:text-slate-400">A clear view of your journaling activity.</p></div>
+          <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><span id="current-date-display">Today</span></div>
         </section>
 
-        <section class="stats-grid" id="overview" aria-label="Journal overview">
-          <article class="stat-card">
-            <div class="stat-top"><span class="stat-label">Total entries</span><span class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z"/><path d="M9 8h6M9 12h6"/></svg></span></div>
-            <div class="stat-value">0</div><p class="stat-note">Your entries will appear here</p>
-          </article>
-          <article class="stat-card">
-            <div class="stat-top"><span class="stat-label">Active journals</span><span class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5z"/><path d="M5 4.5v17"/></svg></span></div>
-            <div class="stat-value">0</div><p class="stat-note">Choose a journal to get started</p>
-          </article>
-          <article class="stat-card">
-            <div class="stat-top"><span class="stat-label">Days journaling</span><span class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="9"/></svg></span></div>
-            <div class="stat-value">0</div><p class="stat-note">Every journey starts somewhere</p>
-          </article>
+        <section class="grid grid-cols-1 gap-0 border-y border-slate-200 sm:grid-cols-3 dark:border-slate-800" aria-label="Journal statistics">
+          <article class="stat-panel"><p>Total entries</p><strong id="metric-total-entries">0</strong><span>Across all journals</span></article>
+          <article class="stat-panel"><p>Active journals</p><strong id="metric-active-journals">0</strong><span>Journals you have started</span></article>
+          <article class="stat-panel"><p>Entries this week</p><strong id="metric-week-entries">0</strong><span>Your last seven days</span></article>
         </section>
 
-        <section class="section-block" id="journals">
-          <div class="section-heading"><div><h2>My journals</h2><p>Choose a space that fits what you want to track.</p></div></div>
-          <div class="journal-grid">
-            <article class="journal-card trading-card">
-              <div class="journal-card-top"><span class="journal-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17 9 11l4 4 8-9"/><path d="M15 6h6v6"/></svg></span><span class="status-pill">Not active</span></div>
-              <h3>Trading Journal</h3><p>Record your trades, review your decisions, and understand your progress over time.</p>
-              <button class="journal-action" type="button" data-journal="Trading Journal">Set up journal</button>
-            </article>
-            <article class="journal-card expense-card">
-              <div class="journal-card-top"><span class="journal-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></svg></span><span class="status-pill">Not active</span></div>
-              <h3>Expense Journal</h3><p>Keep track of your spending, understand your habits, and stay on top of your money.</p>
-              <button class="journal-action" type="button" data-journal="Expense Journal">Set up journal</button>
-            </article>
-            <article class="journal-card personal-card">
-              <div class="journal-card-top"><span class="journal-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-4.5-8-10a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.5-8 10-8 10z"/><path d="M8 12h8"/></svg></span><span class="status-pill">Not active</span></div>
-              <h3>Personal Journal</h3><p>A private space for your thoughts, reflections, ideas, and everyday moments.</p>
-              <button class="journal-action" type="button" data-journal="Personal Journal">Set up journal</button>
-            </article>
+        <section id="journals">
+          <div class="mb-4"><h2 class="text-base font-semibold tracking-tight">My journals</h2><p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Choose a space that fits what you want to keep track of.</p></div>
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+            <article class="journal-panel"><div class="mb-5 flex items-center justify-between"><span class="journal-mark trading-mark">T</span><span class="journal-count" id="trading-count">0 entries</span></div><p class="mb-1 text-[10px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Performance</p><h3>Trading Journal</h3><p>Record your trades, review your decisions, and understand your progress over time.</p><button class="journal-action" data-journal="Trading">Open journal</button></article>
+            <article class="journal-panel"><div class="mb-5 flex items-center justify-between"><span class="journal-mark expense-mark">E</span><span class="journal-count" id="expense-count">0 entries</span></div><p class="mb-1 text-[10px] font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400">Finance</p><h3>Expense Journal</h3><p>Track your spending, understand your habits, and stay on top of your money.</p><button class="journal-action" data-journal="Expense">Open journal</button></article>
+            <article class="journal-panel"><div class="mb-5 flex items-center justify-between"><span class="journal-mark personal-mark">P</span><span class="journal-count" id="personal-count">0 entries</span></div><p class="mb-1 text-[10px] font-semibold uppercase tracking-wider text-violet-600 dark:text-violet-400">Reflection</p><h3>Personal Journal</h3><p>A private space for your thoughts, reflections, ideas, and everyday moments.</p><button class="journal-action" data-journal="Personal">Open journal</button></article>
           </div>
         </section>
 
-        <section class="section-block recent-section" id="recent">
-          <div class="section-heading"><div><h2>Recent entries</h2><p>Your latest notes and journal activity will show up here.</p></div></div>
-          <div class="empty-state">
-            <div class="empty-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z"/><path d="M9 8h6M9 12h6"/></svg></div>
-            <h3>Your story starts here</h3>
-            <p>You haven't created any entries yet. Choose a journal above and make your first entry when you're ready.</p>
-            <a class="empty-link" href="#journals">Explore my journals</a>
-          </div>
+        <section id="entries" class="space-y-4">
+          <div class="flex flex-col justify-between gap-3 border-b border-slate-200 pb-4 sm:flex-row sm:items-end dark:border-slate-800"><div><h2 class="text-base font-semibold tracking-tight">Recent entries</h2><p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Your latest journal activity.</p></div><div class="flex flex-wrap gap-1 rounded-md bg-slate-100 p-1 dark:bg-slate-800" role="group" aria-label="Filter entries"><button class="filter-tab active" data-filter="All">All</button><button class="filter-tab" data-filter="Trading">Trading</button><button class="filter-tab" data-filter="Expense">Expense</button><button class="filter-tab" data-filter="Personal">Personal</button></div></div>
+          <div id="entries-container" class="divide-y divide-slate-200 overflow-hidden rounded-lg border border-slate-200 bg-white dark:divide-slate-800 dark:border-slate-800 dark:bg-surface-dark"></div>
+          <div id="empty-state-container" class="rounded-lg border border-dashed border-slate-300 bg-white px-6 py-12 text-center dark:border-slate-700 dark:bg-surface-dark"><div class="mx-auto mb-4 grid h-11 w-11 place-items-center rounded-full bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z"/><path d="M9 8h6M9 12h6"/></svg></div><h3 class="text-sm font-semibold">Your story starts here</h3><p class="mx-auto mt-2 max-w-sm text-xs leading-6 text-slate-500 dark:text-slate-400">You haven't created any entries yet. Start with a journal above or create your first entry.</p><button id="empty-create-entry" class="mt-5 rounded-md bg-brand-700 px-4 py-2 text-xs font-semibold text-white transition hover:bg-brand-600">Create first entry</button></div>
         </section>
-        <footer class="dashboard-footer"><span>MAX Journal</span><span>A little space to reflect, plan, and grow.</span></footer>
-      </div>
-    </main>
+        <footer class="flex flex-col gap-1 border-t border-slate-200 pt-5 text-[11px] text-slate-400 sm:flex-row sm:justify-between dark:border-slate-800"><span class="font-semibold tracking-wide">MAX JOURNAL</span><span>A little space to reflect, plan, and grow.</span></footer>
+      </main>
+    </div>
   </div>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div id="entry-modal" class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-950/60 p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="my-auto w-full max-w-lg overflow-hidden rounded-lg border border-slate-200 bg-white shadow-xl dark:border-slate-700 dark:bg-surface-dark">
+      <div class="flex items-center justify-between border-b border-slate-200 px-6 py-4 dark:border-slate-800"><h2 id="modal-title" class="text-base font-semibold">Create journal entry</h2><button id="close-entry-modal" class="rounded p-1 text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Close">✕</button></div>
+      <form id="new-entry-form">
+        <div class="space-y-4 px-6 py-5">
+          <label class="form-label">Journal category<select id="entry-category" class="form-control"><option value="Trading">Trading Journal</option><option value="Expense">Expense Journal</option><option value="Personal">Personal Journal</option></select></label>
+          <label class="form-label">Entry title<input id="entry-title" class="form-control" type="text" maxlength="120" placeholder="Give this entry a title" required></label>
+          <label class="form-label"><span id="metric-label">Trade result / risk-reward</span><input id="entry-metric" class="form-control" type="text" maxlength="80" placeholder="Optional detail"></label>
+          <label class="form-label">Tags<input id="entry-tags" class="form-control" type="text" placeholder="Separate tags with commas"></label>
+          <label class="form-label">Your entry<textarea id="entry-content" class="form-control" rows="5" placeholder="Write your notes here..." required></textarea></label>
+        </div>
+        <div class="flex justify-end gap-2 border-t border-slate-200 bg-slate-50 px-6 py-3 dark:border-slate-800 dark:bg-slate-900/50"><button id="cancel-entry" type="button" class="rounded-md px-4 py-2 text-xs font-medium text-slate-600 hover:bg-slate-200 dark:text-slate-300 dark:hover:bg-slate-800">Cancel</button><button type="submit" class="rounded-md bg-brand-700 px-4 py-2 text-xs font-semibold text-white hover:bg-brand-600">Save entry</button></div>
+      </form>
+    </div>
+  </div>
+  <div id="view-modal" class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-950/60 p-4" role="dialog" aria-modal="true" aria-labelledby="view-title">
+    <div class="my-auto w-full max-w-lg overflow-hidden rounded-lg border border-slate-200 bg-white shadow-xl dark:border-slate-700 dark:bg-surface-dark"><div class="flex items-center justify-between border-b border-slate-200 px-6 py-4 dark:border-slate-800"><div><p id="view-category" class="mb-1 text-[10px] font-semibold uppercase tracking-wider text-brand-600"></p><h2 id="view-title" class="text-base font-semibold"></h2></div><button id="close-view-modal" class="rounded p-1 text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Close">✕</button></div><div class="space-y-4 px-6 py-5"><div class="flex justify-between gap-3 border-b border-slate-100 pb-3 text-xs text-slate-500 dark:border-slate-800"><span id="view-date"></span><strong id="view-metric" class="text-slate-800 dark:text-slate-200"></strong></div><p id="view-content" class="whitespace-pre-wrap text-sm leading-7 text-slate-700 dark:text-slate-300"></p><div id="view-tags" class="flex flex-wrap gap-2"></div></div><div class="flex justify-end border-t border-slate-200 px-6 py-3 dark:border-slate-800"><button id="close-view-bottom" class="rounded-md bg-slate-100 px-4 py-2 text-xs font-medium dark:bg-slate-800">Close</button></div></div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="dashboard.js"></script>
 </body>
 </html>
