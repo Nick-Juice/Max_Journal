@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4169e1">
+  <meta name="description" content="Your personal space to reflect, plan, and grow.">
+  <title>Dashboard · MAX Journal</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="dashboard.html" aria-label="MAX Journal dashboard">
+        <img src="public/max-logo.png" alt="MAX Journal">
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="dashboard.html" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="8" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="15" width="7" height="6" rx="1.5"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-link" href="#journals">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5z"/><path d="M5 4.5v17M9 6h7M9 10h7"/></svg>
+          <span>My Journals</span>
+        </a>
+        <a class="nav-link" href="#recent">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z"/><path d="M9 8h6M9 12h6"/></svg>
+          <span>All Entries</span>
+        </a>
+        <a class="nav-link" href="#overview">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 6-7"/></svg>
+          <span>Insights</span>
+        </a>
+      </nav>
+      <div class="sidebar-bottom">
+        <a class="nav-link" href="#settings">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.2 1-1.4 2.4-1.5-.6a8 8 0 0 1-1.6.9l-.3 1.6h-2.8l-.3-1.6a8 8 0 0 1-1.6-.9l-1.5.6-1.4-2.4 1.2-1a8 8 0 0 1 0-1.9l-1.2-1 1.4-2.4 1.5.6a8 8 0 0 1 1.6-.9l.3-1.6h2.8l.3 1.6a8 8 0 0 1 1.6.9l1.5-.6 1.4 2.4-1.2 1a8 8 0 0 1 0 1.9z"/></svg>
+          <span>Settings</span>
+        </a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-user">
+          <div class="avatar">M</div>
+          <div class="user-copy"><strong>My account</strong><span>Personal workspace</span></div>
+          <button class="more-button" type="button" aria-label="Account options">···</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Open navigation" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <div class="breadcrumb"><span>Workspace</span><span class="breadcrumb-separator">/</span><strong>Dashboard</strong></div>
+        <div class="topbar-actions">
+          <button class="icon-button theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" title="Switch theme">
+            <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+          </button>
+          <button class="profile-button" type="button" aria-label="Account profile"><span class="avatar small">M</span><span class="profile-name">My account</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        </div>
+      </header>
+
+      <div class="dashboard-wrap">
+        <section class="welcome-row">
+          <div>
+            <p class="eyebrow">YOUR PERSONAL SPACE</p>
+            <h1>Welcome to your journal<span class="blue-period">.</span></h1>
+            <p class="welcome-copy">A fresh page is waiting. Take a moment to reflect, plan, and grow.</p>
+          </div>
+          <div class="date-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><span id="todayDate">Today</span></div>
+        </section>
+
+        <section class="stats-grid" id="overview" aria-label="Journal overview">
+          <article class="stat-card">
+            <div class="stat-top"><span class="stat-label">Total entries</span><span class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z"/><path d="M9 8h6M9 12h6"/></svg></span></div>
+            <div class="stat-value">0</div><p class="stat-note">Your entries will appear here</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span class="stat-label">Active journals</span><span class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5z"/><path d="M5 4.5v17"/></svg></span></div>
+            <div class="stat-value">0</div><p class="stat-note">Choose a journal to get started</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span class="stat-label">Days journaling</span><span class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="9"/></svg></span></div>
+            <div class="stat-value">0</div><p class="stat-note">Every journey starts somewhere</p>
+          </article>
+        </section>
+
+        <section class="section-block" id="journals">
+          <div class="section-heading"><div><h2>My journals</h2><p>Choose a space that fits what you want to track.</p></div><a class="text-link" href="#journals">Explore journals <span>→</span></a></div>
+          <div class="journal-grid">
+            <article class="journal-card trading-card">
+              <div class="journal-card-top"><span class="journal-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17 9 11l4 4 8-9"/><path d="M15 6h6v6"/></svg></span><span class="status-pill">Not active</span></div>
+              <h3>Trading Journal</h3><p>Record your trades, review your decisions, and understand your progress over time.</p>
+              <button class="journal-action" type="button" data-journal="Trading Journal">Set up journal <span>→</span></button>
+            </article>
+            <article class="journal-card expense-card">
+              <div class="journal-card-top"><span class="journal-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></svg></span><span class="status-pill">Not active</span></div>
+              <h3>Expense Journal</h3><p>Keep track of your spending, understand your habits, and stay on top of your money.</p>
+              <button class="journal-action" type="button" data-journal="Expense Journal">Set up journal <span>→</span></button>
+            </article>
+            <article class="journal-card personal-card">
+              <div class="journal-card-top"><span class="journal-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-4.5-8-10a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.5-8 10-8 10z"/><path d="M8 12h8"/></svg></span><span class="status-pill">Not active</span></div>
+              <h3>Personal Journal</h3><p>A private space for your thoughts, reflections, ideas, and everyday moments.</p>
+              <button class="journal-action" type="button" data-journal="Personal Journal">Set up journal <span>→</span></button>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-block recent-section" id="recent">
+          <div class="section-heading"><div><h2>Recent entries</h2><p>Your latest notes and journal activity will show up here.</p></div><a class="text-link" href="#recent">View all <span>→</span></a></div>
+          <div class="empty-state">
+            <div class="empty-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z"/><path d="M9 8h6M9 12h6"/></svg></div>
+            <h3>Your story starts here</h3>
+            <p>You haven't created any entries yet. Choose a journal above and make your first entry when you're ready.</p>
+            <a class="empty-link" href="#journals">Explore my journals <span>→</span></a>
+          </div>
+        </section>
+        <footer class="dashboard-footer"><span>MAX Journal</span><span>A little space to reflect, plan, and grow.</span></footer>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="dashboard.js"></script>
+</body>
+</html>
