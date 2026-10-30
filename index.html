@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4169e1">
+  <meta name="description" content="Sign in to MAX Journal.">
+  <title>Sign in · MAX Journal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+      <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+    </button>
+    <section class="login-card" aria-labelledby="welcomeTitle">
+      <img class="brand-logo" src="public/max-logo.png" alt="MAX Journal">
+      <h1 id="welcomeTitle">Welcome</h1>
+
+      <form id="loginForm">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+
+        <div class="password-heading">
+          <label for="password">Password</label>
+          <a href="#" id="forgotLink">Forgot password?</a>
+        </div>
+        <div class="password-wrap">
+          <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required minlength="6">
+          <button class="show-password" id="showPassword" type="button" aria-label="Show password">Show</button>
+        </div>
+
+        <label class="remember"><input type="checkbox" name="remember"> <span>Remember me</span></label>
+        <button class="submit-button" type="submit">Sign in</button>
+        <div class="or-divider" aria-hidden="true"><span>or</span></div>
+        <button class="google-button" id="googleSignIn" type="button">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.72 7.18l7.62 5.91c4.45-4.1 7.14-10.14 7.14-17.56z"/><path fill="#FBBC05" d="M10.53 28.59A14.4 14.4 0 0 1 9.75 24c0-1.59.27-3.13.76-4.59l-7.98-6.19A23.9 23.9 0 0 0 0 24c0 3.87.93 7.53 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.9-5.89l-7.62-5.91c-2.12 1.42-4.84 2.26-8.28 2.26-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          Continue with Google
+        </button>
+        <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+      </form>
+      <p class="signup">New to MAX Journal? <a href="create-account.html">Create an account</a></p>
+    </section>
+    <p class="footer-note">A little space to reflect, plan, and grow.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
