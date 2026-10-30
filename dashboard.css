@@ -161,28 +161,31 @@ body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col > main#dashboard { 
 }
 
 
-/* Subtle ambient blue glow for a futuristic MAX Journal workspace */
+/* Bright, continuously moving royal-blue ambient light */
 body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col {
   position:relative;
   isolation:isolate;
   background-color:#f8fafc;
   background-image:
-    radial-gradient(ellipse 52% 42% at 82% 4%, rgba(59,130,246,.13), transparent 72%),
-    radial-gradient(ellipse 42% 38% at 8% 88%, rgba(96,165,250,.10), transparent 72%);
-  background-size:150% 150%;
-  animation:maxAmbientGlow 18s ease-in-out infinite alternate;
+    radial-gradient(ellipse 58% 48% at 78% 8%, rgba(37,99,235,.30), transparent 68%),
+    radial-gradient(ellipse 48% 52% at 12% 78%, rgba(59,130,246,.24), transparent 70%),
+    radial-gradient(ellipse 42% 38% at 52% 48%, rgba(96,165,250,.19), transparent 72%);
+  background-size:180% 180%;
+  animation:maxAmbientGlow 9s ease-in-out infinite alternate;
 }
 .dark body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col {
-  background-color:#030712;
+  background-color:#020617;
   background-image:
-    radial-gradient(ellipse 58% 48% at 82% 2%, rgba(37,99,235,.25), transparent 72%),
-    radial-gradient(ellipse 46% 42% at 8% 88%, rgba(29,78,216,.18), transparent 72%),
-    radial-gradient(ellipse 34% 32% at 54% 48%, rgba(30,64,175,.08), transparent 76%);
+    radial-gradient(ellipse 62% 54% at 78% 6%, rgba(37,99,235,.52), transparent 68%),
+    radial-gradient(ellipse 54% 56% at 10% 82%, rgba(29,78,216,.40), transparent 70%),
+    radial-gradient(ellipse 48% 42% at 52% 46%, rgba(59,130,246,.30), transparent 72%);
 }
 @keyframes maxAmbientGlow {
   0% { background-position:0% 0%; }
-  50% { background-position:55% 35%; }
-  100% { background-position:100% 70%; }
+  25% { background-position:65% 20%; }
+  50% { background-position:100% 75%; }
+  75% { background-position:35% 100%; }
+  100% { background-position:0% 45%; }
 }
 @media (prefers-reduced-motion:reduce) {
   body > .flex.min-h-screen > div.flex.min-w-0.flex-1.flex-col { animation:none; }
