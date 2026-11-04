@@ -172,3 +172,12 @@ html:not(.dark) #entries-container,html:not(.dark) #empty-state-container{backgr
 html:not(.dark) #entry-modal>div,html:not(.dark) #view-modal>div{background:linear-gradient(145deg,rgba(250,252,255,.97),rgba(235,240,250,.96)) !important;color:#172033}
 html:not(.dark) #entry-modal input,html:not(.dark) #entry-modal select,html:not(.dark) #entry-modal textarea,html:not(.dark) #view-modal input,html:not(.dark) #view-modal select,html:not(.dark) #view-modal textarea,html:not(.dark) .form-control{background:rgba(255,255,255,.78) !important;border-color:rgba(50,65,95,.16) !important;color:#172033 !important}
 html:not(.dark) .filter-tab.active{background:rgba(65,105,225,.11) !important;color:#2348a8 !important}
+
+/* Glass panel spacing and nested modal surfaces. */
+.login-card{padding:34px 28px 28px !important}
+#entry-modal>div>div,#view-modal>div>div{background:transparent !important}
+#entry-modal>div .border-b,#view-modal>div .border-b,#entry-modal>div .border-t,#view-modal>div .border-t{border-color:rgba(255,255,255,.11) !important}
+#entry-modal .bg-white,#view-modal .bg-white,#entry-modal .dark\:bg-surface-dark,#view-modal .dark\:bg-surface-dark{background:transparent !important}
+#entry-modal .bg-slate-50,#view-modal .bg-slate-50,#entry-modal .dark\:bg-slate-900,#view-modal .dark\:bg-slate-900{background:rgba(255,255,255,.025) !important}
+:root[data-theme="light"] .login-card{padding:34px 28px 28px !important}
+@media(max-width:420px){.login-card{padding:28px 20px 24px !important}}
