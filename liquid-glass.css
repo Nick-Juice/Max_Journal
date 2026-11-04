@@ -146,3 +146,29 @@ footer{border-color:rgba(255,255,255,.11) !important;background:linear-gradient(
 }
 @media(prefers-reduced-motion:reduce){body::before{animation:none}:where(*,*::before,*::after){scroll-behavior:auto !important;transition-duration:.01ms !important;animation-duration:.01ms !important}}
 @media(forced-colors:active){:where(.login-card,#sidebar,body> .flex.min-h-screen>div.flex.min-w-0.flex-1.flex-col>header,.stat-panel,.journal-panel,#entries-container,#empty-state-container,#entry-modal>div,#view-modal>div){background:Canvas;color:CanvasText;backdrop-filter:none;box-shadow:inset 0 0 0 1px CanvasText}}
+
+/* Preserve the existing light/dark controls while keeping the same glass material. */
+:root[data-theme="light"]{color-scheme:light;--lg-ink:#171b24;--lg-muted:#5e6879;--lg-quiet:#697282;--lg-line:rgba(30,41,59,.15);--lg-hairline:rgba(255,255,255,.72);--lg-glass:rgba(255,255,255,.48);--lg-sheet:rgba(248,250,255,.82)}
+:root[data-theme="light"] body{background:radial-gradient(ellipse at 12% 8%,rgba(65,105,225,.12),transparent 34%),radial-gradient(ellipse at 90% 84%,rgba(75,115,235,.08),transparent 32%),linear-gradient(145deg,#edf1fa,#f8faff 52%,#edf1fa) !important;color:#171b24}
+:root[data-theme="light"] .login-card{background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(255,255,255,.58) 55%,rgba(225,233,255,.46)) !important;border-color:rgba(255,255,255,.92) !important;box-shadow:0 24px 70px -30px rgba(47,65,110,.32),inset 0 1px 0 #fff,inset 0 0 0 1px rgba(255,255,255,.55) !important}
+:root[data-theme="light"] .login-card label,:root[data-theme="light"] .login-card .intro,:root[data-theme="light"] .login-card .signup,:root[data-theme="light"] .login-card .field-hint{color:#586274}
+:root[data-theme="light"] .login-card input:not([type=checkbox]){background:rgba(255,255,255,.72) !important;border-color:rgba(74,86,110,.18) !important;color:#171b24 !important}
+:root[data-theme="light"] .theme-toggle,:root[data-theme="light"] .show-password,:root[data-theme="light"] .google-button{background:rgba(255,255,255,.58) !important;border-color:rgba(60,72,95,.17) !important;color:#30394b}
+:root[data-theme="light"] .or-divider{color:#737d8f}
+:root[data-theme="light"] .or-divider::before,:root[data-theme="light"] .or-divider::after{background:rgba(30,41,59,.15) !important}
+html:not(.dark) body{background:radial-gradient(ellipse at 12% 8%,rgba(65,105,225,.12),transparent 34%),linear-gradient(145deg,#edf1fa,#f8faff 60%,#edf1fa) !important;color:#172033}
+html:not(.dark) #sidebar{background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(246,249,255,.58)) !important;border-color:rgba(50,65,95,.14) !important;box-shadow:8px 0 32px -26px rgba(20,35,65,.2)}
+html:not(.dark) body> .flex.min-h-screen>div.flex.min-w-0.flex-1.flex-col>header{background:rgba(249,251,255,.72) !important;border-color:rgba(50,65,95,.14) !important}
+html:not(.dark) #dashboard{color:#172033}
+html:not(.dark) #dashboard .text-slate-900,html:not(.dark) #dashboard .text-slate-800{color:#172033}
+html:not(.dark) #dashboard .text-slate-500,html:not(.dark) #dashboard .text-slate-400{color:#647087}
+html:not(.dark) #dashboard .border-slate-200{border-color:rgba(50,65,95,.13) !important}
+html:not(.dark) .journal-panel{background:linear-gradient(145deg,rgba(255,255,255,.8),rgba(255,255,255,.46) 58%,rgba(65,105,225,.055)) !important;border-color:rgba(50,65,95,.15) !important;box-shadow:0 10px 30px -18px rgba(30,45,80,.22),inset 0 1px 0 rgba(255,255,255,.95) !important}
+html:not(.dark) .nav-link{color:#536078 !important}
+html:not(.dark) .nav-link:hover{background:rgba(65,105,225,.07) !important;color:#172033 !important}
+html:not(.dark) .nav-link.active{background:rgba(65,105,225,.1) !important;color:#2348a8 !important}
+html:not(.dark) .header-search input,html:not(.dark) #global-search-input{background:rgba(255,255,255,.58) !important;border-color:rgba(50,65,95,.15) !important;color:#172033 !important}
+html:not(.dark) #entries-container,html:not(.dark) #empty-state-container{background:rgba(255,255,255,.42) !important;border-color:rgba(50,65,95,.15) !important}
+html:not(.dark) #entry-modal>div,html:not(.dark) #view-modal>div{background:linear-gradient(145deg,rgba(250,252,255,.97),rgba(235,240,250,.96)) !important;color:#172033}
+html:not(.dark) #entry-modal input,html:not(.dark) #entry-modal select,html:not(.dark) #entry-modal textarea,html:not(.dark) #view-modal input,html:not(.dark) #view-modal select,html:not(.dark) #view-modal textarea,html:not(.dark) .form-control{background:rgba(255,255,255,.78) !important;border-color:rgba(50,65,95,.16) !important;color:#172033 !important}
+html:not(.dark) .filter-tab.active{background:rgba(65,105,225,.11) !important;color:#2348a8 !important}
