@@ -246,3 +246,105 @@ a:hover { text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+/* Liquid-glass motion layer — keeps MAX's black and royal-blue identity. */
+:root {
+  --glass-fill: rgba(16, 21, 34, 0.58);
+  --glass-edge: rgba(167, 190, 255, 0.20);
+  --glass-highlight: rgba(255, 255, 255, 0.075);
+}
+html { background: var(--page); }
+body {
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
+  background:
+    radial-gradient(ellipse at 50% 12%, rgba(65,105,225,.12), transparent 42%),
+    var(--page);
+}
+.liquid-backdrop {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+}
+.liquid-orb {
+  position: absolute;
+  width: clamp(230px, 35vw, 520px);
+  aspect-ratio: 1;
+  border-radius: 42% 58% 62% 38% / 45% 42% 58% 55%;
+  opacity: .28;
+  filter: blur(1px);
+  background: radial-gradient(circle at 32% 28%, rgba(160,190,255,.78), rgba(65,105,225,.32) 28%, rgba(65,105,225,.06) 62%, transparent 72%);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,.22), inset -14px -20px 45px rgba(22,48,130,.12);
+  will-change: transform, border-radius;
+}
+.liquid-orb.orb-one { top: -180px; left: -160px; }
+.liquid-orb.orb-two {
+  right: -190px; bottom: -210px; width: clamp(280px, 42vw, 620px);
+  opacity: .22;
+  background: radial-gradient(circle at 35% 30%, rgba(118,157,255,.8), rgba(49,83,190,.26) 34%, transparent 72%);
+}
+.liquid-glint {
+  position: absolute; inset: 0;
+  background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,.018) 48%, transparent 72%);
+  transform: translateX(-100%);
+  will-change: transform;
+}
+.login-card {
+  position: relative;
+  z-index: 1;
+  padding: 30px 28px 25px;
+  border: 1px solid var(--glass-edge);
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(255,255,255,.055), transparent 38%), var(--glass-fill);
+  box-shadow: 0 24px 90px rgba(0,0,0,.28), inset 0 1px 0 var(--glass-highlight), 0 0 45px rgba(65,105,225,.055);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  backdrop-filter: blur(18px) saturate(135%);
+  transform: translateZ(0);
+}
+.brand-logo { filter: drop-shadow(0 8px 24px rgba(65,105,225,.12)); }
+input[type="email"], input[type="password"], input[type="text"] {
+  border-radius: 10px;
+  background: rgba(5,8,15,.46);
+  transition: border-color .25s ease, box-shadow .25s ease, background .25s ease;
+}
+input[type="email"]:focus, .password-wrap input:focus {
+  background: rgba(8,13,25,.8);
+  box-shadow: 0 0 0 3px var(--focus), 0 0 24px rgba(65,105,225,.12);
+}
+.submit-button, .google-button {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+}
+.submit-button { box-shadow: 0 7px 24px rgba(65,105,225,.22); }
+.submit-button:hover { box-shadow: 0 10px 32px rgba(65,105,225,.34); transform: translateY(-1px); }
+.google-button:hover { transform: translateY(-1px); }
+.theme-toggle {
+  border-radius: 12px;
+  background: rgba(255,255,255,.035);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+.theme-toggle:hover { transform: translateY(-2px); background: rgba(255,255,255,.07); }
+:root[data-theme="light"] .login-card {
+  --glass-fill: rgba(255,255,255,.68);
+  --glass-edge: rgba(65,105,225,.18);
+  background: linear-gradient(145deg, rgba(255,255,255,.8), rgba(255,255,255,.55));
+  box-shadow: 0 24px 80px rgba(38,55,95,.12), inset 0 1px 0 rgba(255,255,255,.9);
+}
+:root[data-theme="light"] input[type="email"],
+:root[data-theme="light"] input[type="password"],
+:root[data-theme="light"] input[type="text"] { background: rgba(255,255,255,.72); }
+@media (max-width: 480px) {
+  .login-card { padding: 26px 20px 22px; border-radius: 20px; }
+  .liquid-orb { opacity: .18; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .liquid-orb, .liquid-glint { animation: none !important; }
+}
