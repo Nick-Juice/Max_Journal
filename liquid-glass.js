@@ -5,7 +5,7 @@
  const lowPower=(navigator.hardwareConcurrency&&navigator.hardwareConcurrency<=4)||navigator.connection?.saveData===true;
  const gsap=window.gsap;
  if(gsap&&!reduce){
-   const auth=document.querySelector('.login-card');
+   const auth=document.querySelector('.create-page .login-card');
    if(auth)gsap.fromTo(auth,{opacity:0,y:18,scale:.99},{opacity:1,y:0,scale:1,duration:.8,ease:'power3.out',clearProps:'transform'});
    const cards=[...document.querySelectorAll('.journal-panel,.stat-panel,#entries-container,#empty-state-container')];
    if(cards.length)gsap.fromTo(cards,{opacity:0,y:12},{opacity:1,y:0,duration:.58,stagger:.065,ease:'power2.out',clearProps:'transform',delay:.05});
